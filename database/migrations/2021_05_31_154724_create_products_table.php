@@ -18,7 +18,6 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('tenant_id');
             $table->string('name')->unique();
             $table->string('url')->unique();
-            $table->string('image');
             $table->double('price', 10, 2);
             $table->text('description');
             $table->timestamps();
@@ -29,14 +28,14 @@ class CreateProductsTable extends Migration
                   ->onDelete('cascade');
         });
 
-        Schema::create('category_product', function (Blueprint $table) {
+        Schema::create('basket_product', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('basket_id');
             $table->unsignedBigInteger('product_id');
 
-            $table->foreign('category_id')
+            $table->foreign('basket_id')
                             ->references('id')
-                            ->on('categories')
+                            ->on('baskets')
                             ->onDelete('cascade');
             
             $table->foreign('product_id')

@@ -3,18 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUpdateTable;
-use App\Models\Tables;
+use App\Http\Requests\StoreUpdateBasket;
+use App\Models\Basket;
 use Illuminate\Http\Request;
 
-class TableController extends Controller
+class BasketController extends Controller
 {
+ 
     private $repository;
 
-    public function __construct(Tables $table)
+    public function __construct(Basket $basket)
     {
-        $this->repository = $table;
-        $this->middleware(['can:tables']);
+        $this->repository = $basket;
+        $this->middleware(['can:baskets']);
     }
 
     /**
@@ -24,8 +25,8 @@ class TableController extends Controller
      */
     public function index()
     {
-        $tables = $this->repository->paginate();
-        return view('admin.pages.tables.index', compact('tables'));
+        $baskets = $this->repository->paginate();
+        return view('admin.pages.baskets.index', compact('baskets'));
     }
 
     /**
@@ -35,20 +36,20 @@ class TableController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.tables.create');
+        return view('admin.pages.baskets.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUpdateTable  $request
+     * @param  \App\Http\Requests\StoreUpdateBasket  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUpdateTable $request)
+    public function store(StoreUpdateBasket $request)
     {
         $this->repository->create($request->all());
 
-        return redirect()->route('tables.index');
+        return redirect()->route('baskets.index');
     }
 
     /**
@@ -59,11 +60,11 @@ class TableController extends Controller
      */
     public function show($id)
     {
-        $table = $this->repository->find($id);
-        if(!$table){
+        $basket = $this->repository->find($id);
+        if(!$basket){
             return redirect()->back();
         }
-        return view('admin.pages.tables.show', compact('table'));
+        return view('admin.pages.baskets.show', compact('basket'));
     }
 
     /**
@@ -74,30 +75,30 @@ class TableController extends Controller
      */
     public function edit($id)
     {
-        $table = $this->repository->find($id);
-        if(!$table){
+        $basket = $this->repository->find($id);
+        if(!$basket){
             return redirect()->back();
         }
-        return view('admin.pages.tables.edit', compact('table'));
+        return view('admin.pages.baskets.edit', compact('basket'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUpdateTable  $request
+     * @param  \App\Http\Requests\StoreUpdateBasket  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreUpdateTable $request, $id)
+    public function update(StoreUpdateBasket $request, $id)
     {
-        $table = $this->repository->find($id);
-        if(!$table){
+        $basket = $this->repository->find($id);
+        if(!$basket){
             return redirect()->back();
         }
 
-        $table->update( $request->all() );
+        $basket->update( $request->all() );
 
-        return redirect()->route('tables.index');
+        return redirect()->route('baskets.index');
     }
 
     /**
@@ -108,14 +109,14 @@ class TableController extends Controller
      */
     public function destroy($id)
     {
-        $table = $this->repository->find($id);
-        if(!$table){
+        $basket = $this->repository->find($id);
+        if(!$basket){
             return redirect()->back();
         }
 
-        $table->delete();
+        $basket->delete();
 
-        return redirect()->route('tables.index');
+        return redirect()->route('baskets.index');
     }
 
     public function search(Request $request)
@@ -123,7 +124,7 @@ class TableController extends Controller
         
         $filters = $request->only('filter');
 
-        $tables = $this->repository
+        $baskets = $this->repository
                             ->where(function($query) use ($request){
                                 if($request->filter){
                                     $query->where('name', 'like', "%{$request->filter}%");
@@ -133,6 +134,6 @@ class TableController extends Controller
                             ->latest()
                             ->paginate();
 
-        return view('admin.pages.tables.index', compact('tables', 'filters'));
+        return view('admin.pages.baskets.index', compact('baskets', 'filters'));
     }
 }

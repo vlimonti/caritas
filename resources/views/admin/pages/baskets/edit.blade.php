@@ -1,19 +1,19 @@
 @extends('adminlte::page')
 
-@section('title', "Editar mesa {$table->identify}")
+@section('title', "Editar cesta {{ $basket->name }}")
 
 @section('content_header')
-    <h1>Editar mesa {{ $table->identify }}</h1>
+    <h1>Editar cesta {{ $basket->name }}</h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('tables.update', $table->id) }}" class="form" method="post">
+            <form action="{{ route('baskets.update', $basket->id) }}" class="form" method="post">
                 @csrf
                 @method('PUT')
                 
-                @include('admin.pages.tables._partials.form')
+                @include('admin.pages.baskets._partials.form')
             </form> 
         </div>
         <div class="card-footer">

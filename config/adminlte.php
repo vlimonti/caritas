@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'LaraFood',
+    'title' => 'Caritas',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => false,
+    'use_ico_only' => true,
     'use_full_favicon' => false,
 
     /*
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Lara</b>Food',
+    'logo' => '<b>Caritas</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'LaraFood',
+    'logo_img_alt' => 'Caritas',
 
     /*
     |--------------------------------------------------------------------------
@@ -225,22 +225,16 @@ return [
 
     'menu' => [
         [
+            'text' => 'Cestas',
+            'url'  => 'admin/baskets',
+            'icon' => 'fas fa-shopping-basket',
+            'can'  => 'baskets',
+        ],
+        [
             'text' => 'Empresas',
             'url'  => 'admin/tenants',
             'icon' => 'fas fa-building',
             'can'  => 'tenants',
-        ],
-        [
-            'text' => 'Planos',
-            'url'  => 'admin/plans',
-            'icon' => 'fas fa-list-alt',
-            'can'  => 'plans',
-        ],
-        [
-            'text' => 'Perfis',
-            'url'  => 'admin/profiles',
-            'icon' => 'fas fa-users',
-            'can'  => 'profiles',
         ],
         [
             'text' => 'Funções',
@@ -249,22 +243,22 @@ return [
             'can'  => 'roles',
         ],
         [
+            'text' => 'Perfis',
+            'url'  => 'admin/profiles',
+            'icon' => 'fas fa-users',
+            'can'  => 'profiles',
+        ],
+        [
             'text' => 'Permissões',
             'url'  => 'admin/permissions',
             'icon' => 'fas fa-user-lock',
             'can'  => 'permissions',
         ],
         [
-            'text' => 'Usuários',
-            'url'  => 'admin/users',
-            'icon' => 'fas fa-user',
-            'can'  => 'users',
-        ],
-        [
-            'text' => 'Categorias',
-            'url'  => 'admin/categories',
-            'icon' => 'fas fa-layer-group',
-            'can'  => 'categories',
+            'text' => 'Planos',
+            'url'  => 'admin/plans',
+            'icon' => 'fas fa-list-alt',
+            'can'  => 'plans',
         ],
         [
             'text' => 'Produtos',
@@ -273,11 +267,12 @@ return [
             'can'  => 'products',
         ],
         [
-            'text' => 'Mesas',
-            'url'  => 'admin/tables',
-            'icon' => 'fas fa-tablet',
-            'can'  => 'tables',
+            'text' => 'Usuários',
+            'url'  => 'admin/users',
+            'icon' => 'fas fa-user',
+            'can'  => 'users',
         ],
+        
     ],
 
     /*

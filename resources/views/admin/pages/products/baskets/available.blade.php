@@ -1,22 +1,22 @@
 @extends('adminlte::page')
 
-@section('title', "Categorias disponíveis para {$product->name } ")
+@section('title', "Cestas disponíveis para adicionar {$product->name } ")
 
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
         <li class="breadcrumb-item"><a href="{{ route('products.index') }}">Produtos</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('products.categories', $product->id) }}">Categorias</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('products.categories.available', $product->id) }}">Categorias Disponíveis</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('products.baskets', $product->id) }}">Cestas</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('products.baskets.available', $product->id) }}">Cestas Disponíveis</a></li>
     </ol>
-    <h1>Categorias disponíveis para {{ $product->name }} 
+    <h1>Cestas disponíveis para adicionar {{ $product->name }} 
     </h1>    
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <form action="{{ route('products.categories.available', $product->id) }}" method="POST" class="form form-inline">
+            <form action="{{ route('products.baskets.available', $product->id) }}" method="POST" class="form form-inline">
                 @csrf
                 <input type="text" name="filter" placeholder="Filtro" class="form-control" value="{{ $filters['filter'] ?? '' }}">
                 <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
@@ -31,16 +31,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <form action=" {{ route('products.categories.attach', $product->id) }}" method="POST" class="form">
+                    <form action=" {{ route('products.baskets.attach', $product->id) }}" method="POST" class="form">
                         @csrf
 
-                        @foreach($categories as $category)
+                        @foreach($baskets as $basket)
                             <tr>
                                 <td>
-                                    <input type="checkbox" name="categories[]" value="{{ $category->id }}">
+                                    <input type="checkbox" name="baskets[]" value="{{ $basket->id }}">
                                 </td>
                                 <td>
-                                    {{ $category->name }}
+                                    {{ $basket->name }}
                                 </td>
                             </tr>
                         @endforeach
@@ -59,9 +59,9 @@
         </div>
         <div class="card-footer">
             @if (isset($filters))
-                {!! $categories->appends($filters)->links() !!}
+                {!! $baskets->appends($filters)->links() !!}
             @else
-                {!! $categories->links() !!}
+                {!! $baskets->links() !!}
             @endif
         </div>
     </div>

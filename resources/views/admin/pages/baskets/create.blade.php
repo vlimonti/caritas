@@ -1,18 +1,18 @@
 @extends('adminlte::page')
 
-@section('title', 'Cadastrar Nova Categoria')
+@section('title', 'Cadastrar nova cesta')
 
 @section('content_header')
-    <h1>Cadastrar Nova Categoria</h1>
+    <h1>Cadastrar nova cesta</h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('categories.store') }}" class="form" method="post">
+            <form action="{{ route('baskets.store') }}" class="form" method="post">
                 @csrf
                 
-                @include('admin.pages.categories._partials.form')
+                @include('admin.pages.baskets._partials.form')
             </form> 
         </div>
         <div class="card-footer">

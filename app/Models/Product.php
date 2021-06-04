@@ -9,29 +9,29 @@ class Product extends Model
 {
     use TenantTrait;
 
-    protected $fillable = ['name', 'url', 'price', 'description', 'image'];
+    protected $fillable = ['name', 'url', 'price', 'description'];
 
-    public function categories()
+    public function baskets()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Basket::class);
     }
 
     /**
-     * Categories not linked with this profile
+     * Baskets not linked with this profile
     */
-    public function categoriesAvailable( $filter = null )
+    public function basketsAvailable( $filter = null )
     {
-        $categories = Category::whereNotIn('categories.id', function($query){
-            $query->select('category_product.category_id');
-            $query->from('category_product');
-            $query->whereRaw("category_product.product_id = {$this->id}");
+        $baskets = Basket::whereNotIn('baskets.id', function($query){
+            $query->select('basket_product.basket_id');
+            $query->from('basket_product');
+            $query->whereRaw("basket_product.product_id = {$this->id}");
         })
         ->where(function ($queryFilter) use ($filter){
             if($filter)
-                $queryFilter->where('categories.name', 'LIKE', "%{$filter}%");
+                $queryFilter->where('baskets.name', 'LIKE', "%{$filter}%");
         })
         ->paginate();
 
-        return $categories;
+        return $baskets;
     }
 }

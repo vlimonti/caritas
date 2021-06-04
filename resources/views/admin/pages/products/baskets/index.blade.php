@@ -1,15 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', "Categorias do produto {$product->name } ")
+@section('title', "Cestas com o produto {$product->name } ")
 
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
         <li class="breadcrumb-item"><a href="{{ route('products.index') }}">Produtos</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('products.categories', $product->id) }}">Categorias</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('products.baskets', $product->id) }}">Cestas</a></li>
     </ol>
-    <h1>Categorias do produto {{ $product->name }} 
-        <a href="{{ route('products.categories.available', $product->id ) }}" class="btn btn-dark">ADD NOVA CATEGORIA
+    <h1>Cestas com o produto {{ $product->name }} 
+        <a href="{{ route('products.baskets.available', $product->id ) }}" class="btn btn-dark">ADD NOVA CESTA
             <i class="fas fa-plus"></i>
         </a>
     </h1>    
@@ -26,13 +26,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($categories as $category)
+                    @foreach($baskets as $basket)
                         <tr>
                             <td>
-                                {{ $category->name }}
+                                {{ $basket->name }}
                             </td>
                             <td style="width=10px;">
-                                <a href="{{ route('product.category.detach', [$product->id, $category->id]) }}" class="btn btn-danger">Desvincular</a>
+                                <a href="{{ route('product.basket.detach', [$product->id, $basket->id]) }}" class="btn btn-danger">Desvincular</a>
                             </td>
                         </tr>
                     @endforeach
@@ -41,9 +41,9 @@
         </div>
         <div class="card-footer">
             @if (isset($filters))
-                {!! $categories->appends($filters)->links() !!}
+                {!! $baskets->appends($filters)->links() !!}
             @else
-                {!! $categories->links() !!}
+                {!! $baskets->links() !!}
             @endif
         </div>
     </div>

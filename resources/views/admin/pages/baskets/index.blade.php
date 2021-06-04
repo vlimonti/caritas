@@ -1,19 +1,19 @@
 @extends('adminlte::page')
 
-@section('title', 'Categorias')
+@section('title', 'Cestas')
 
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('categories.index') }}">Categorias</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('baskets.index') }}">Cestas</a></li>
     </ol>
-    <h1>Categorias <a href="{{ route('categories.create') }}" class="btn btn-dark">ADD <i class="fas fa-plus"></i></a></h1>    
+    <h1>Cestas <a href="{{ route('baskets.create') }}" class="btn btn-dark">ADD <i class="fas fa-plus"></i></a></h1>    
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <form action="{{ route('categories.search') }}" method="POST" class="form form-inline">
+            <form action="{{ route('baskets.search') }}" method="POST" class="form form-inline">
                 @csrf
                 <input type="text" name="filter" placeholder="Filtro" class="form-control" value="{{ $filters['filter'] ?? '' }}">
                 <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
@@ -29,17 +29,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($categories as $category)
+                    @foreach($baskets as $basket)
                         <tr>
                             <td>
-                                {{ $category->name }}
+                                {{ $basket->name }}
                             </td>
                             <td>
-                                {{ $category->description }}
+                                {{ $basket->description }}
                             </td>
                             <td style="width=10px;">
-                                <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('categories.show', $category->id) }}" class="btn btn-warning">Ver</a>
+                                <a href="{{ route('baskets.edit', $basket->id) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('baskets.show', $basket->id) }}" class="btn btn-warning">Ver</a>
                             </td>
                         </tr>
                     @endforeach
@@ -48,9 +48,9 @@
         </div>
         <div class="card-footer">
             @if (isset($filters))
-                {!! $categories->appends($filters)->links() !!}
+                {!! $baskets->appends($filters)->links() !!}
             @else
-                {!! $categories->links() !!}
+                {!! $baskets->links() !!}
             @endif
         </div>
     </div>

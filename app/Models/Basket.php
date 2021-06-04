@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Tenant\Traits\TenantTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Basket extends Model
 {
     use TenantTrait;
 

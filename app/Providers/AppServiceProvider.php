@@ -3,13 +3,13 @@
 namespace App\Providers;
 
 use App\Models\{
-    Category,
+    Basket,
     Plan,
     Product,
     Tenant
 };
 use App\Observers\{
-    CategoryObserver,
+    BasketObserver,
     PlanObserver,
     ProductObserver,
     TenantObserver
@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Plan::observe(PlanObserver::class);
         Tenant::observe(TenantObserver::class);
-        Category::observe(CategoryObserver::class);
+        Basket::observe(BasketObserver::class);
         Product::observe(ProductObserver::class);
     }
 }

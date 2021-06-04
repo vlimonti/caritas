@@ -45,13 +45,13 @@ Route::prefix('admin')
     Route::resource('tables', 'TableController');
 
     /**
-     * Route Product x Category
+     * Route Product x Basket
     */
-    Route::get('products/{id}/category/{idCategory}/detach', 'CategoryProductController@detachCategoryProduct')->name('product.category.detach');
-    Route::post('products/{id}/categories', 'CategoryProductController@attachCategoriesProduct')->name('products.categories.attach');
-    Route::any('products/{id}/categories/create', 'CategoryProductController@categoriesAvailable')->name('products.categories.available');
-    Route::get('products/{id}/categories', 'CategoryProductController@categories')->name('products.categories');
-    Route::get('categories/{id}/products', 'CategoryProductController@products')->name('categories.products');
+    Route::get('products/{id}/basket/{idBasket}/detach', 'BasketProductController@detachBasketProduct')->name('product.basket.detach');
+    Route::post('products/{id}/baskets', 'BasketProductController@attachBasketsProduct')->name('products.baskets.attach');
+    Route::any('products/{id}/baskets/create', 'BasketProductController@basketsAvailable')->name('products.baskets.available');
+    Route::get('products/{id}/baskets', 'BasketProductController@baskets')->name('products.baskets');
+    Route::get('baskets/{id}/products', 'BasketProductController@products')->name('baskets.products');
     
 
     /**
@@ -62,10 +62,10 @@ Route::prefix('admin')
 
 
     /**
-    * Route Categories
+    * Route Baskets
     */
-    Route::any('categories/search', 'CategoryController@search')->name('categories.search');
-    Route::resource('categories', 'CategoryController');
+    Route::any('baskets/search', 'BasketController@search')->name('baskets.search');
+    Route::resource('baskets', 'BasketController');
 
     /**
     * Route Users
