@@ -140,7 +140,7 @@ Route::prefix('admin')
 /**
  * Site
  */
-Route::get('/plan/{url}', 'Site\SiteController@plan')->name('plan.subscription');
+//Route::get('/plan/{url}', 'Site\SiteController@plan')->name('plan.subscription');
 Route::get('/', 'Site\SiteController@index')->name('site.home');
 
 
