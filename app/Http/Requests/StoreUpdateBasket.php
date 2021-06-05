@@ -25,9 +25,15 @@ class StoreUpdateBasket extends FormRequest
     {
         $id = $this->segment(3);
 
-        return [
-            'name' => ['required', 'min:3', 'max:255', "unique:baskets,name,{$id},id"],
-            'description' => ['required', 'min:3', 'max:10000'],
+        $rules = [
+            'name' => "required|min:3|max:255|unique:baskets,name,{$id},id",
+            'description' => 'nullable|min:3|max:10000',
         ];
+
+        if ($this->method() == 'PUT') {
+            $rules['name'] = 'required|min:3|max:255';
+        }
+
+        return $rules;
     }
 }

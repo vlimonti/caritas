@@ -17,7 +17,7 @@ class Product extends Model
     }
 
     /**
-     * Baskets not linked with this profile
+     * Baskets not linked with this product
     */
     public function basketsAvailable( $filter = null )
     {

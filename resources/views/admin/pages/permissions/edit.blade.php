@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Editar permissão {{ $permission->name }}")
+@section('title', "Editar permissão {$permission->name}")
 
 @section('content_header')
     <h1>Editar permissão {{ $permission->name }}</h1>

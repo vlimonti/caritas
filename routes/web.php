@@ -39,10 +39,12 @@ Route::prefix('admin')
     Route::resource('tenants', 'TenantController');
 
     /**
-    * Route Tables
+     * Route Basket x Product
     */
-    Route::any('tables/search', 'TableController@search')->name('tables.search');
-    Route::resource('tables', 'TableController');
+    Route::get('baskets/{id}/product/{idProduct}/detach', 'BasketProductController@detachProductBasket')->name('basket.product.detach');
+    Route::post('baskets/{id}/products', 'BasketProductController@attachProductsBasket')->name('baskets.products.attach');
+    Route::any('baskets/{id}/products/create', 'BasketProductController@productsAvailable')->name('baskets.products.available');
+    Route::get('baskets/{id}/products', 'BasketProductController@products')->name('baskets.products');
 
     /**
      * Route Product x Basket
@@ -51,7 +53,6 @@ Route::prefix('admin')
     Route::post('products/{id}/baskets', 'BasketProductController@attachBasketsProduct')->name('products.baskets.attach');
     Route::any('products/{id}/baskets/create', 'BasketProductController@basketsAvailable')->name('products.baskets.available');
     Route::get('products/{id}/baskets', 'BasketProductController@baskets')->name('products.baskets');
-    Route::get('baskets/{id}/products', 'BasketProductController@products')->name('baskets.products');
     
 
     /**

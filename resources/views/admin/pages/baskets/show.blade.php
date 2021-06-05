@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Detalhes da cesta { $basket->name }")
+@section('title', "Detalhes da cesta {$basket->name}")
 
 @section('content_header')
     <h1>Detalhes da cesta <b>{{ $basket->name }}</b></h1>
@@ -16,10 +16,16 @@
                 <li>
                     <strong>Descrição: </strong> {{ $basket->description }}
                 </li>
-                <li>
-                    <strong>URL: </strong> {{ $basket->url }}
-                </li>
             </ul>
+            <hr>
+            <h5> <i class="fas fa-utensils"></i> Itens da cesta:</h5>
+                <ul>
+                    @foreach ($products as $product)
+                    <li>
+                        {{ $product->name }}
+                    </li>
+                    @endforeach
+                </ul>
         </div>
         <div class="card-footer">
             @include('admin.includes.alerts')

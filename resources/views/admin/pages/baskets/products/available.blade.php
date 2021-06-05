@@ -1,21 +1,22 @@
 @extends('adminlte::page')
 
-@section('title', "Perfis disponíveis para {$permission->name} ")
+@section('title', "Produtos disponíveis para cesta {$basket->name } ")
 
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('permissions.index') }}">Permissões</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('permissions.profiles', $permission->id) }}">Profiles</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('baskets.index') }}">Cestas</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('baskets.products', $basket->id) }}">Produtos</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('baskets.products.available', $basket->id) }}">Produtos Disponíveis</a></li>
     </ol>
-    <h1>Perfis disponíveis para {{ $permission->name }} 
+    <h1>Produtos disponíveis para cesta {{ $basket->name }} 
     </h1>    
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <form action="{{ route('permission.profiles.available', $permission->id) }}" method="POST" class="form form-inline">
+            <form action="{{ route('baskets.products.available', $basket->id) }}" method="POST" class="form form-inline">
                 @csrf
                 <input type="text" name="filter" placeholder="Filtro" class="form-control" value="{{ $filters['filter'] ?? '' }}">
                 <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
@@ -30,16 +31,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <form action=" {{ route('permission.profiles.attach', $permission->id) }}" method="POST" class="form">
+                    <form action=" {{ route('baskets.products.attach', $basket->id) }}" method="POST" class="form">
                         @csrf
 
-                        @foreach($profiles as $profile)
+                        @foreach($products as $product)
                             <tr>
                                 <td>
-                                    <input type="checkbox" name="profiles[]" value="{{ $profile->id }}">
+                                    <input type="checkbox" name="products[]" value="{{ $product->id }}">
                                 </td>
                                 <td>
-                                    {{ $profile->name }}
+                                    {{ $product->name }}
                                 </td>
                             </tr>
                         @endforeach
@@ -58,9 +59,9 @@
         </div>
         <div class="card-footer">
             @if (isset($filters))
-                {!! $profiles->appends($filters)->links() !!}
+                {!! $products->appends($filters)->links() !!}
             @else
-                {!! $profiles->links() !!}
+                {!! $products->links() !!}
             @endif
         </div>
     </div>

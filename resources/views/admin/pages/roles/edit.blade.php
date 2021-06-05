@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Editar Função {{ $role->name }}")
+@section('title', "Editar Função {$role->name}")
 
 @section('content_header')
     <h1>Editar Função {{ $role->name }}</h1>

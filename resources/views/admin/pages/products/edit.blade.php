@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Editar produto {{ $product->name }}")
+@section('title', "Editar produto {$product->name}")
 
 @section('content_header')
     <h1>Editar produto {{ $product->name }}</h1>

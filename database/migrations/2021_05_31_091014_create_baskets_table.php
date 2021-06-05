@@ -16,9 +16,9 @@ class CreateBasketsTable extends Migration
         Schema::create('baskets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('tenant_id');
-            $table->string('name')->unique();
-            $table->string('url')->unique();
-            $table->string('description');
+            $table->string('name');
+            $table->string('url');
+            $table->string('description')->nullable();
             $table->timestamps();
 
             $table->foreign('tenant_id')

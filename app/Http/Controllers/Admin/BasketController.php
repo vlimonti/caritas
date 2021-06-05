@@ -64,7 +64,10 @@ class BasketController extends Controller
         if(!$basket){
             return redirect()->back();
         }
-        return view('admin.pages.baskets.show', compact('basket'));
+
+        $products = $basket->products()->paginate();
+
+        return view('admin.pages.baskets.show', compact('basket','products'));
     }
 
     /**
@@ -95,7 +98,7 @@ class BasketController extends Controller
         if(!$basket){
             return redirect()->back();
         }
-
+        //dd($request->all());
         $basket->update( $request->all() );
 
         return redirect()->route('baskets.index');

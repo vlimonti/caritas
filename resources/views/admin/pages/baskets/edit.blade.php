@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Editar cesta {{ $basket->name }}")
+@section('title', "Editar cesta {$basket->name}")
 
 @section('content_header')
     <h1>Editar cesta {{ $basket->name }}</h1>

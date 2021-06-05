@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Funções da permissão {$permission->name } ")
+@section('title', "Funções da permissão {$permission->name} ")
 
 @section('content_header')
     <ol class="breadcrumb">
