@@ -38,9 +38,9 @@
                                 {{ $basket->description }}
                             </td>
                             <td style="width=10px;">
-                                <a href="{{ route('baskets.products', $basket->id) }}" class="btn btn-warning" title="Produtos"><i class="fas fa-utensils"></i></a>
-                                <a href="{{ route('baskets.edit', $basket->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('baskets.show', $basket->id) }}" class="btn btn-warning">Ver</a>
+                                <a href="{{ route('baskets.edit', $basket->id) }}" class="btn btn-info" title="Editar"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('baskets.show', $basket->id) }}" class="btn btn-warning" title="Ver"><i class="fas fa-eye"></i></a>
+                                <a href="{{ route('baskets.products', $basket->id) }}" class="btn btn-dark" title="Produtos"><i class="fas fa-utensils"></i></a>
                             </td>
                         </tr>
                     @endforeach

@@ -38,10 +38,10 @@
                                 R$ {{ number_format( $plan->price , 2, ',', '.') }}
                             </td>
                             <td style="width=10px;">
-                                <a href="{{ route('details.plan.index', $plan->url) }}" class="btn btn-dark">Detalhes</a>
-                                <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-warning">Ver</a>
-                                <a href="{{ route('plans.profiles', $plan->id) }}" class="btn btn-info" title="Perfis"><i class="fas fa-users"></i></a>
+                                <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-info" title="Editar"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-warning" title="Ver"><i class="fas fa-eye"></i></a>
+                                <a href="{{ route('details.plan.index', $plan->url) }}" class="btn btn-dark" title="Detalhes"><i class="fas fa-info-circle"></i></a>
+                                <a href="{{ route('plans.profiles', $plan->id) }}" class="btn btn-info" title="Perfis"><i class="fas fa-users"></i></a>                                
                             </td>
                         </tr>
                     @endforeach

@@ -34,10 +34,10 @@
                                 {{ $profile->name }}
                             </td>
                             <td style="width=10px;">
-                                <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-warning">Ver</a>
-                                <a href="{{ route('profiles.permissions', $profile->id) }}" class="btn btn-info" title="Permissões"><i class="fas fa-user-lock"></i> </a>
+                                <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-info" title="Editar"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-warning" title="Ver"><i class="fas fa-eye"></i></a>
                                 <a href="{{ route('profiles.plans', $profile->id) }}" class="btn btn-dark" title="Planos"><i class="fas fa-list-alt"></i> </a>
+                                <a href="{{ route('profiles.permissions', $profile->id) }}" class="btn btn-info" title="Permissões"><i class="fas fa-user-lock"></i> </a>
                             </td>
                         </tr>
                     @endforeach

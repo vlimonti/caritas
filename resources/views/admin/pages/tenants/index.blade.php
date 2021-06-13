@@ -38,8 +38,8 @@
                                 {{ $tenant->description }}
                             </td>
                             <td style="width=10px;">
-                                <a href="{{ route('tenants.edit', $tenant->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('tenants.show', $tenant->id) }}" class="btn btn-warning">Ver</a>
+                                <a href="{{ route('tenants.edit', $tenant->id) }}" class="btn btn-info" title="Editar"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('tenants.show', $tenant->id) }}" class="btn btn-warning" title="Ver"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     @endforeach

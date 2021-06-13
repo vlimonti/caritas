@@ -34,10 +34,10 @@
                                 {{ $permission->name }}
                             </td>
                             <td style="width=10px;">
-                                <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('permissions.show', $permission->id) }}" class="btn btn-warning">Ver</a>
+                                <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-info" title="Editar"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('permissions.show', $permission->id) }}" class="btn btn-warning" title="Ver"><i class="fas fa-eye"></i></a>
+                                <a href="{{ route('permissions.roles', $permission->id) }}" class="btn btn-dark" title="Funções"><i class="fas fa-briefcase"></i></a>
                                 <a href="{{ route('permissions.profiles', $permission->id) }}" class="btn btn-info" title="Perfis"><i class="fas fa-users"></i></a>
-                                <a href="{{ route('permissions.roles', $permission->id) }}" class="btn btn-warning" title="Funções"><i class="fas fa-briefcase"></i></a>
                             </td>
                         </tr>
                     @endforeach
