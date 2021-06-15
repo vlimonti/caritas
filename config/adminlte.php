@@ -237,6 +237,12 @@ return [
             'can'  => 'tenants',
         ],
         [
+            'text' => 'Famílias',
+            'url'  => 'admin/families',
+            'icon' => 'fas fa-house-user',
+            'can'  => 'families',
+        ],
+        [
             'text' => 'Funções',
             'url'  => 'admin/roles',
             'icon' => 'fas fa-briefcase',

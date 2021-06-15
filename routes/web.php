@@ -6,6 +6,13 @@ Route::prefix('admin')
         ->middleware('auth')
         ->group(function() {
     
+
+    /**
+     * Route Family
+    */
+    Route::any('families/search', 'FamilyController@search')->name('families.search');
+    Route::resource('families', 'FamilyController');
+
     /**
      * Route Role x User
     */
