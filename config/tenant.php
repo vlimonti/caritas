@@ -5,8 +5,6 @@ return [
      * Admin e-mails
     */
     'admins' => [
-        'victor@gmail.com',
-        'eduardo@gmail.com',
-        'thiago@gmail.com',
+        'admin@4king.com.br',
     ],
 ];

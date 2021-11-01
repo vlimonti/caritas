@@ -14,7 +14,7 @@
 </div>
 <div class="form-group">
     <label for="cnpj">* CNPJ:</label>
-    <input type="number" name="cnpj" class="form-control" placeholder="CNPJ" value="{{ $tenant->cnpj ?? old('cnpj') }}">
+    <input type="text" name="cnpj" class="form-control" placeholder="CNPJ" value="{{ $tenant->cnpj ?? old('cnpj') }}">
 </div>
 <div class="form-group">
     <label for="active">* Ativo?</label>
@@ -52,5 +52,12 @@
     </select>
 </div>
 <div class="form-group">
-   <button type="submit" class="btn btn-success">Salvar</button>
+    <a href="{{ route('tenants.index') }}">
+        <button type="button" class="btn btn-danger">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
+    </a>
+    <button type="submit" class="btn btn-success" style="margin: 0 15px;">
+        <i class="fas fa-check"></i> Salvar
+    </button>
 </div>

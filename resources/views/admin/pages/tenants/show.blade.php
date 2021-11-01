@@ -9,7 +9,9 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <img src="{{ url("storage/{$tenant->logo}") }}" alt="logo:  {{ $tenant->name }}" style="max-width:100px">
+            @if (isset($tenant->logo))
+                <img src="{{ url("storage/{$tenant->logo}") }}" alt="logo:  {{ $tenant->name }}" style="max-width:100px">
+            @endif
             <ul>
                 <li>
                     <strong>Plano: </strong> {{ $tenant->plan->name }}

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\ACL;
 
 use App\Http\Controllers\Controller;
 use App\Models\Role;
-use App\Modules\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RoleUserController extends Controller
@@ -13,7 +13,7 @@ class RoleUserController extends Controller
 
     public function __construct(User $user, Role $role)
     {
-        $this->user    = $user;
+        $this->user = $user;
         $this->role = $role;
         $this->middleware(['can:users']);
     }

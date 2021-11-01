@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Empresas')
+@section('title', 'Igrejas')
 
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('tenants.index') }}">Empresas</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('tenants.index') }}">Igrejas</a></li>
     </ol>
-    <h1>Empresas</h1>    
+    <h1>Igrejas</h1>    
 @stop
 
 @section('content')

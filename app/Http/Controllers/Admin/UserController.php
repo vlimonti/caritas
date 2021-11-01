@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateUser;
-use App\Modules\User;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -24,7 +25,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->repository->latest()->tenantUser()->paginate();
+        $users = $this->repository->latest()
+                                ->tenantUser()
+                                ->paginate();
 
         return view('admin.pages.users.index', compact('users'));
     }

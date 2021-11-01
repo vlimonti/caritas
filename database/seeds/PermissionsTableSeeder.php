@@ -14,7 +14,7 @@ class PermissionsTableSeeder extends Seeder
     {
         Permission::create([
             'name' => 'tenants',
-            'description' => 'Empresas'
+            'description' => 'Igrejas'
         ]);
 
         Permission::create([
@@ -43,14 +43,53 @@ class PermissionsTableSeeder extends Seeder
         ]);
         
         Permission::create([
-            'name' => 'baskets',
-            'description' => 'Cestas'
+            'name' => 'categories',
+            'description' => 'Categorias'
         ]);
         
         Permission::create([
-            'name' => 'products',
-            'description' => 'Produtos'
+            'name' => 'musics',
+            'description' => 'Músicas'
         ]);
-        
+
+        Permission::create([
+            'name' => 'teams',
+            'description' => 'Equipes'
+        ]);
+
+        Permission::create([
+            'name' => 'skills',
+            'description' => 'Habilidades'
+        ]);
+
+        Permission::create([
+            'name' => 'people',
+            'description' => 'Pessoas'
+        ]);
+
+        Permission::create([
+            'name' => 'settings',
+            'description' => 'Configurações'
+        ]);
+
+        Permission::create([
+            'name' => 'records',
+            'description' => 'Cadastros'
+        ]);    
+
+        Permission::create([
+            'name' => 'ministries',
+            'description' => 'Ministérios'
+        ]); 
+
+        Permission::create([
+            'name' => 'operations',
+            'description' => 'Operações'
+        ]);
+
+        Permission::create([
+            'name' => 'scales',
+            'description' => 'Escalas'
+        ]);
     }
 }

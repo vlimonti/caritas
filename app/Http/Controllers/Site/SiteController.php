@@ -10,9 +10,7 @@ class SiteController extends Controller
 {
     public function index()
     {
-        //$plans = Plan::with('details')->orderBy('price', 'ASC')->get();
-        return view('vendor.adminlte.auth.login');
-        //return view('site.pages.home.index', compact('plans'));
+        return view('site.pages.home.index');
     }
 
     public function plan($url)
@@ -23,5 +21,22 @@ class SiteController extends Controller
         session()->put('plan', $plan);
 
         return redirect()->route('register');
+    }
+
+    public function login()
+    {
+        return redirect()->route('login');
+    }
+
+    public function plans()
+    {
+        $plans = Plan::with('details')->orderBy('price', 'ASC')->get();
+        //return view('vendor.adminlte.auth.login');
+        return view('site.pages.plans.index', compact('plans'));
+    }
+
+    public function about()
+    {
+        return view('site.pages.about.index');
     }
 }

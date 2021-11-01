@@ -1,24 +1,73 @@
 <?php
 
-
 Route::prefix('admin')
         ->namespace('Admin')
         ->middleware('auth')
         ->group(function() {
     
+    /**
+    * Route Skills x People
+    */
+    Route::get('skills/{idSkill}/person/{idPerson}/detach', 'PersonSkillController@detachPersonSkill')->name('skill.person.detach');
+    Route::post('skills/{idSkill}/people', 'PersonSkillController@attachPeopleSkill')->name('skills.people.attach');
+    Route::any('skills/{idSkill}/people/create', 'PersonSkillController@peopleAvailable')->name('skills.people.available');
+    Route::get('skills/{idSkill}/people', 'PersonSkillController@people')->name('skills.people');
 
     /**
-     * Route Family
+    * Route People x Skills
     */
-    Route::any('families/search', 'FamilyController@search')->name('families.search');
-    Route::resource('families', 'FamilyController');
+    Route::get('people/{idPerson}/skill/{idSkill}/detach', 'PersonSkillController@detachSkillPerson')->name('person.skill.detach');
+    Route::post('people/{idPerson}/skills', 'PersonSkillController@attachSkillsPeople')->name('people.skills.attach');
+    Route::any('people/{idPerson}/skills/create', 'PersonSkillController@skillsAvailable')->name('people.skills.available');
+    Route::get('people/{idPerson}/skills', 'PersonSkillController@skills')->name('people.skills');
+
+    /**
+    * Route People x Teams
+    */
+    Route::get('people/{idPerson}/team/{idTeam}/detach', 'PersonTeamController@detachTeamPerson')->name('person.team.detach');
+    Route::post('people/{idPerson}/teams', 'PersonTeamController@attachTeamsPerson')->name('people.teams.attach');
+    Route::any('people/{idPerson}/teams/create', 'PersonTeamController@teamsAvailable')->name('people.teams.available');
+    Route::get('people/{idPerson}/teams', 'PersonTeamController@teams')->name('people.teams');
+
+    /**
+    * Route Teams X People
+    */
+    Route::get('teams/{idTeam}/person/{idPerson}/detach', 'PersonTeamController@detachPersonTeam')->name('team.person.detach');
+    Route::post('teams/{idTeam}/people', 'PersonTeamController@attachPeopleTeam')->name('teams.people.attach');
+    Route::any('teams/{idTeam}/people/create', 'PersonTeamController@peopleAvailable')->name('teams.people.available');
+    Route::get('teams/{idTeam}/people', 'PersonTeamController@people')->name('teams.people');
+
+    /**
+    * Route Team
+    */
+    Route::any('teams/search', 'TeamController@search')->name('teams.search');
+    Route::resource('teams', 'TeamController');
+
+    /**
+    * Route Skill
+    */
+    Route::any('skills/search', 'SkillController@search')->name('skills.search');
+    Route::resource('skills', 'SkillController');
+    
+    /**
+    * Route Person
+    */
+    Route::get('people/address/{postal}', 'PersonController@apiPostal')->name('address.postal');
+    Route::any('people/search', 'PersonController@search')->name('people.search');
+    Route::resource('people', 'PersonController');
+
+    /**
+    * Route Ministry
+    */
+    Route::any('ministries/search', 'MinistryController@search')->name('ministries.search');
+    Route::resource('ministries', 'MinistryController');
 
     /**
      * Route Role x User
     */
-    Route::get('users/{id}/role/{idRole}/detach', 'ACL\RoleUserController@detachRoleUser')->name('user.role.detach')->middleware(['can:roles']);
-    Route::post('users/{id}/roles', 'ACL\RoleUserController@attachRolesUser')->name('users.roles.attach')->middleware(['can:roles']);
-    Route::any('users/{id}/roles/create', 'ACL\RoleUserController@rolesAvailable')->name('users.roles.available')->middleware(['can:roles']);
+    Route::get('users/{id}/role/{idRole}/detach', 'ACL\RoleUserController@detachRoleUser')->name('user.role.detach');
+    Route::post('users/{id}/roles', 'ACL\RoleUserController@attachRolesUser')->name('users.roles.attach');
+    Route::any('users/{id}/roles/create', 'ACL\RoleUserController@rolesAvailable')->name('users.roles.available');
     Route::get('users/{id}/roles', 'ACL\RoleUserController@roles')->name('users.roles');
     Route::get('roles/{id}/users', 'ACL\RoleUserController@users')->name('roles.users');
 
@@ -46,34 +95,34 @@ Route::prefix('admin')
     Route::resource('tenants', 'TenantController');
 
     /**
-     * Route Basket x Product
+     * Route Categoria x Music
     */
-    Route::get('baskets/{id}/product/{idProduct}/detach', 'BasketProductController@detachProductBasket')->name('basket.product.detach');
-    Route::post('baskets/{id}/products', 'BasketProductController@attachProductsBasket')->name('baskets.products.attach');
-    Route::any('baskets/{id}/products/create', 'BasketProductController@productsAvailable')->name('baskets.products.available');
-    Route::get('baskets/{id}/products', 'BasketProductController@products')->name('baskets.products');
+    Route::get('categories/{id}/music/{idMusic}/detach', 'CategoryMusicController@detachMusicCategory')->name('category.music.detach');
+    Route::post('categories/{id}/musics', 'CategoryMusicController@attachMusicsCategory')->name('categories.musics.attach');
+    Route::any('categories/{id}/musics/create', 'CategoryMusicController@musicsAvailable')->name('categories.musics.available');
+    Route::get('categories/{id}/musics', 'CategoryMusicController@musics')->name('categories.musics');
 
     /**
-     * Route Product x Basket
+     * Route Music x Categoria
     */
-    Route::get('products/{id}/basket/{idBasket}/detach', 'BasketProductController@detachBasketProduct')->name('product.basket.detach');
-    Route::post('products/{id}/baskets', 'BasketProductController@attachBasketsProduct')->name('products.baskets.attach');
-    Route::any('products/{id}/baskets/create', 'BasketProductController@basketsAvailable')->name('products.baskets.available');
-    Route::get('products/{id}/baskets', 'BasketProductController@baskets')->name('products.baskets');
+    Route::get('musics/{id}/category/{idCategory}/detach', 'CategoryMusicController@detachCategoryMusic')->name('music.category.detach');
+    Route::post('musics/{id}/categories', 'CategoryMusicController@attachCategoriesMusic')->name('musics.categories.attach');
+    Route::any('musics/{id}/categories/create', 'CategoryMusicController@categoriesAvailable')->name('musics.categories.available');
+    Route::get('musics/{id}/categories', 'CategoryMusicController@categories')->name('musics.categories');
     
 
     /**
-    * Route Products
+    * Route Musics
     */
-    Route::any('products/search', 'ProductController@search')->name('products.search');
-    Route::resource('products', 'ProductController');
+    Route::any('musics/search', 'MusicController@search')->name('musics.search');
+    Route::resource('musics', 'MusicController');
 
 
     /**
-    * Route Baskets
+    * Route Categorias
     */
-    Route::any('baskets/search', 'BasketController@search')->name('baskets.search');
-    Route::resource('baskets', 'BasketController');
+    Route::any('categories/search', 'CategoryController@search')->name('categories.search');
+    Route::resource('categories', 'CategoryController');
 
     /**
     * Route Users
@@ -137,18 +186,22 @@ Route::prefix('admin')
     Route::get('plans/{url}', 'PlanController@show')->name('plans.show');
     Route::post('plans', 'PlanController@store')->name('plans.store');
     Route::get('plans', 'PlanController@index')->name('plans.index');
-    
+     
     /**
      * Route Dashboard
     */
-    Route::get('/', 'PlanController@index')->name('admin.index');
+    Route::get('/', 'DashboardController@index')->name('admin.index');
+    Route::get('/my-profile', 'DashboardController@userProfile')->name('my-profile');;
 });
 
 
 /**
  * Site
  */
-//Route::get('/plan/{url}', 'Site\SiteController@plan')->name('plan.subscription');
+Route::get('/plans/{url}', 'Site\SiteController@plan')->name('plan.subscription');
+Route::get('/plans', 'Site\SiteController@plans')->name('site.plans');
+Route::get('/about', 'Site\SiteController@about')->name('site.about');
+Route::get('/login', 'Site\SiteController@login')->name('site.login');
 Route::get('/', 'Site\SiteController@index')->name('site.home');
 
 

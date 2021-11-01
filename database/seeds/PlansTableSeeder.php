@@ -13,10 +13,10 @@ class PlansTableSeeder extends Seeder
     public function run()
     {
         Plan::create([
-            'name' => 'Free',
-            'url' => 'free',
-            'price' => '0.00', 
-            'description' => 'Plano Free'
+            'name' => 'Premium',
+            'url' => 'premium',
+            'price' => '99.99', 
+            'description' => 'Plano Premium'
         ]);
     }
 }

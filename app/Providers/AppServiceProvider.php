@@ -3,15 +3,23 @@
 namespace App\Providers;
 
 use App\Models\{
-    Basket,
+    Category,
+    Ministry,
     Plan,
-    Product,
+    Music,
+    Person,
+    Skill,
+    Team,
     Tenant
 };
 use App\Observers\{
-    BasketObserver,
+    CategoryObserver,
+    MinistryObserver,
     PlanObserver,
-    ProductObserver,
+    MusicObserver,
+    PersonObserver,
+    SkillObserver,
+    TeamObserver,
     TenantObserver
 };
 use Illuminate\Support\ServiceProvider;
@@ -37,7 +45,11 @@ class AppServiceProvider extends ServiceProvider
     {
         Plan::observe(PlanObserver::class);
         Tenant::observe(TenantObserver::class);
-        Basket::observe(BasketObserver::class);
-        Product::observe(ProductObserver::class);
+        Category::observe(CategoryObserver::class);
+        Music::observe(MusicObserver::class);
+        Team::observe(TeamObserver::class);
+        Ministry::observe(MinistryObserver::class);
+        Person::observe(PersonObserver::class);
+        Skill::observe(SkillObserver::class);
     }
 }

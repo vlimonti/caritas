@@ -3,7 +3,7 @@
 namespace App\Tenant\Events;
 
 use App\Models\Tenant;
-use App\Modules\User;
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;

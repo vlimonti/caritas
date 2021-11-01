@@ -15,10 +15,10 @@ class TenantsTableSeeder extends Seeder
         $plan = Plan::first();
 
         $plan->tenants()->create([
-            'cnpj'  => '12345678912345', 
-            'name'  => 'Empresa', 
-            'url'   => 'empresa', 
-            'email' => 'victor@gmail.com'
+            'cnpj'  => '53215497000121', 
+            'name'  => 'IGREJA BATISTA VIDA NOVA', 
+            'url'   => 'ibvnrp', 
+            'email' => 'admin@4king.com.br'
         ]);
     }
 }

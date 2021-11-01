@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Caritas',
+    'title' => '4King',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Caritas</b>',
+    'logo' => '<b>4</b>King',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Caritas',
+    'logo_img_alt' => '4King',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,11 +65,11 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
+    'usermenu_profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -193,7 +193,7 @@ return [
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -225,60 +225,128 @@ return [
 
     'menu' => [
         [
-            'text' => 'Cestas',
-            'url'  => 'admin/baskets',
-            'icon' => 'fas fa-shopping-basket',
-            'can'  => 'baskets',
+            'header'   => 'MENU' ,
         ],
         [
-            'text' => 'Empresas',
-            'url'  => 'admin/tenants',
-            'icon' => 'fas fa-building',
-            'can'  => 'tenants',
+            'text'     => 'Configurações' ,
+            'icon'     => 'fas fa-cogs' ,
+            'can'      => 'settings',
+            'submenu' => [
+                [
+                    'text' => 'Igrejas',
+                    'url'  => 'admin/tenants',
+                    'icon' => 'fas fa-chevron-right',
+                    'classes'  => 'font-italic',
+                    'can'  => 'tenants',
+                ],
+                [
+                    'text' => 'Funções',
+                    'url'  => 'admin/roles',
+                    'icon' => 'fas fa-chevron-right',
+                    'classes'  => 'font-italic',
+                    'can'  => 'roles',
+                ],
+                [
+                    'text' => 'Perfis',
+                    'url'  => 'admin/profiles',
+                    'icon' => 'fas fa-chevron-right',
+                    'classes'  => 'font-italic',
+                    'can'  => 'profiles',
+                ],
+                [
+                    'text' => 'Permissões',
+                    'url'  => 'admin/permissions',
+                    'icon' => 'fas fa-chevron-right',
+                    'classes'  => 'font-italic',
+                    'can'  => 'permissions',
+                ],
+                [
+                    'text' => 'Planos',
+                    'url'  => 'admin/plans',
+                    'icon' => 'fas fa-chevron-right',
+                    'classes'  => 'font-italic',
+                    'can'  => 'plans',
+                ],
+                [
+                    'text' => 'Usuários',
+                    'url'  => 'admin/users',
+                    'icon' => 'fas fa-chevron-right',
+                    'classes'  => 'font-italic',
+                    'can'  => 'users',
+                ],
+           ],
         ],
         [
-            'text' => 'Famílias',
-            'url'  => 'admin/families',
-            'icon' => 'fas fa-house-user',
-            'can'  => 'families',
+            'text'     => 'Cadastros' ,
+            'icon'     => 'fas fa-keyboard' ,
+            'can'      => 'records',
+            'submenu' => [
+                [
+                    'text' => 'Categorias Musicais',
+                    'url'  => 'admin/categories',
+                    'icon' => 'fas fa-chevron-right',
+                    'classes'  => 'font-italic',
+                    'can'  => 'categories',
+                ],
+                [
+                    'text' => 'Equipes Ministeriais',
+                    'url'  => 'admin/teams',
+                    'icon' => 'fas fa-chevron-right',
+                    'classes'  => 'font-italic',
+                    'can'  => 'teams',
+                ],
+                [
+                    'text' => 'Habilidades',
+                    'url'  => 'admin/skills',
+                    'icon' => 'fas fa-chevron-right',
+                    'classes'  => 'font-italic',
+                    'can'  => 'skills',
+                ],
+                [
+                    'text' => 'Ministérios',
+                    'url'  => 'admin/ministries',
+                    'icon' => 'fas fa-chevron-right',
+                    'classes'  => 'font-italic',
+                    'can'  => 'ministries',
+                ],
+                [
+                    'text' => 'Músicas',
+                    'url'  => 'admin/musics',
+                    'icon' => 'fas fa-chevron-right',
+                    'classes'  => 'font-italic',
+                    'can'  => 'musics',
+                ],
+                [
+                    'text' => 'Pessoas',
+                    'url'  => 'admin/people',
+                    'icon' => 'fas fa-chevron-right',
+                    'classes'  => 'font-italic',
+                    'can'  => 'people',
+                ],  
+           ],
         ],
         [
-            'text' => 'Funções',
-            'url'  => 'admin/roles',
-            'icon' => 'fas fa-briefcase',
-            'can'  => 'roles',
+            'text'     => 'Operações' ,
+            'icon'     => 'fas fa-tasks' ,
+            'can'      => 'operations',
+            'submenu' => [
+                [
+                    'text'     => 'Escalas' ,
+                    'url'      => 'admin/scales',
+                    'icon'     => 'fas fa-chevron-right',
+                    'classes'  => 'font-italic',
+                    'can'      => 'scale',
+                ],
+            ],
         ],
         [
-            'text' => 'Perfis',
-            'url'  => 'admin/profiles',
-            'icon' => 'fas fa-users',
-            'can'  => 'profiles',
-        ],
+            'header'   => 'RELATÓRIOS' ,
+        ], 
         [
-            'text' => 'Permissões',
-            'url'  => 'admin/permissions',
-            'icon' => 'fas fa-user-lock',
-            'can'  => 'permissions',
-        ],
-        [
-            'text' => 'Planos',
-            'url'  => 'admin/plans',
-            'icon' => 'fas fa-list-alt',
-            'can'  => 'plans',
-        ],
-        [
-            'text' => 'Produtos',
-            'url'  => 'admin/products',
-            'icon' => 'fas fa-utensils',
-            'can'  => 'products',
-        ],
-        [
-            'text' => 'Usuários',
-            'url'  => 'admin/users',
-            'icon' => 'fas fa-user',
-            'can'  => 'users',
-        ],
-        
+            'text' => 'Dashboard',
+            'url'  => 'admin',
+            'icon' => 'fas fa-tachometer-alt',
+        ],   
     ],
 
     /*

@@ -15,7 +15,7 @@
 
 @section('auth_body')
 
-    <p><strong>Plano:</strong> {{ session('plan')->name ?? '' }} <a href="{{ route('site.home') }}"><i class="fas fa-exchange-alt"></i></a></p>
+    <p><strong>Plano:</strong> {{ session('plan')->name ?? '' }} <a href="{{ route('site.plans') }}"><i class="fas fa-exchange-alt"></i></a></p>
 
     <form action="{{ $register_url }}" method="post">
         {{ csrf_field() }}

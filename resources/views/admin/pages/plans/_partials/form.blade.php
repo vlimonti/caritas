@@ -13,5 +13,12 @@
     <input type="text" name="description" class="form-control" placeholder="Descrição" value="{{ $plan->description ?? old('description') }}">
 </div>
 <div class="form-group">
-   <button type="submit" class="btn btn-success">Salvar</button>
+    <a href="{{ route('plans.index') }}">
+        <button type="button" class="btn btn-danger">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
+    </a>
+    <button type="submit" class="btn btn-success" style="margin: 0 15px;">
+        <i class="fas fa-check"></i> Salvar
+    </button>
 </div>
